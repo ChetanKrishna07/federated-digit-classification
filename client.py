@@ -56,6 +56,6 @@ class FlowerClient(fl.client.NumPyClient):
     def evaluate(self, parameters, config):
         model.set_weights(parameters)
         loss, accuracy = model.evaluate(x_test, y_test)
-        return accuracy, len(x_test), {"loss": loss}
+        return accuracy, len(x_test), {"accuracy": accuracy}
     
 fl.client.start_numpy_client(server_address="127.0.0.1:8080", client=FlowerClient())
